@@ -4,52 +4,70 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.windhike.tuto"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 7
         versionName "1.7"
-        resValue("string", "wx_appid", "\"${wx_appid}\"")
-        buildConfigField("String", "ad_appid", "\"${ad_appid}\"")
-        buildConfigField("String", "ad_splashposid", "\"${ad_splashposid}\"")
+//        resValue("string", "wx_appid", "\"${wx_appid}\"")
+//        buildConfigField("String", "ad_appid", "\"${ad_appid}\"")
+//        buildConfigField("String", "ad_splashposid", "\"${ad_splashposid}\"")
+        resValue("string", "wx_appid", "\"wx_appid\"")
+        buildConfigField("String", "ad_appid", "\"ad_appid\"")
+        buildConfigField("String", "ad_splashposid", "\"ad_splashposid\"")
     }
 
     signingConfigs {
-        tencent{
-            storeFile file(RELEASE_STORE_FILE)
-            storePassword RELEASE_KEY_PASSWORD
-            keyAlias RELEASE_KEY_ALIAS
-            keyPassword RELEASE_STORE_PASSWORD
-        }
-
-        debug {
-            storeFile file("./keystore/debug.keystore")
+        release {
+            storeFile file("/Users/zhanglingfeng/Downloads/Tuto/biaozhudashi")
+            storePassword "123456"
+            keyAlias "123456"
+            keyPassword "123456"
+            v2SigningEnabled false
         }
     }
 
-    buildTypes {
-        tencent {
-            signingConfig signingConfigs.tencent
-            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        xiaomi {
-            signingConfig signingConfigs.tencent
-            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        alibaba {
-            signingConfig signingConfigs.tencent
-            minifyEnabled false
-        }
-        debug {
-            debuggable true
-            minifyEnabled false
-            signingConfig signingConfigs.tencent
-        }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
     }
+//    signingConfigs {
+//        tencent{
+//            storeFile file(RELEASE_STORE_FILE)
+//            storePassword RELEASE_KEY_PASSWORD
+//            keyAlias RELEASE_KEY_ALIAS
+//            keyPassword RELEASE_STORE_PASSWORD
+//        }
+//
+//        debug {
+//            storeFile file("./keystore/debug.keystore")
+//        }
+//    }
+//
+//    buildTypes {
+//        tencent {
+//            signingConfig signingConfigs.tencent
+//            minifyEnabled false
+////            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//        xiaomi {
+//            signingConfig signingConfigs.tencent
+//            minifyEnabled false
+////            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//        alibaba {
+//            signingConfig signingConfigs.tencent
+//            minifyEnabled false
+//        }
+//        debug {
+//            debuggable true
+//            minifyEnabled false
+//            signingConfig signingConfigs.tencent
+//        }
+//    }
 }
 repositories {
     flatDir {

@@ -28,7 +28,7 @@ public class TutoApplication extends BaseApplication{
         INSTANCE = this;
         PreferenceConnector.writeBoolean(this, FloatSettingView.KEY_DRAWING_NOW,false);
         AnnotationInitialize.getInstance().initialize(this);
-        FlavorConfig.getInstance().init(this);
+//        FlavorConfig.getInstance().init(this);
 
         mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
         IntentFilter filter = new IntentFilter();

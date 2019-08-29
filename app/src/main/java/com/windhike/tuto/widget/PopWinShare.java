@@ -104,10 +104,10 @@ public class PopWinShare extends PopupWindow implements View.OnClickListener{
                         return;
                     }
 
-                    if (!wxApi.isWXAppSupportAPI()) {
-                        Toast.makeText(mRootView.getContext(), R.string.toast_share_wx_update, Toast.LENGTH_SHORT).show();
-                        return;
-                    }
+//                    if (!wxApi.isWXAppSupportAPI()) {
+//                        Toast.makeText(mRootView.getContext(), R.string.toast_share_wx_update, Toast.LENGTH_SHORT).show();
+//                        return;
+//                    }
 //                    WXWebpageObject webpage = new WXWebpageObject();
 //                    webpage.webpageUrl = mShareObject.webUrl;
                     Bitmap bitmap = mShareCallback.getCurrentBitmap();
